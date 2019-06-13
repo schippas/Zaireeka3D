@@ -21,8 +21,8 @@ public class PauseMenu : MonoBehaviour
         m_TimeScaleRef = Time.timeScale;
         Time.timeScale = 0f;
 
-        m_VolumeRef = AudioListener.volume;
-        AudioListener.volume = 0f;
+        //m_VolumeRef = AudioListener.volume;
+       //AudioListener.volume = 0f;
 
         m_Paused = true;
     }
@@ -31,7 +31,7 @@ public class PauseMenu : MonoBehaviour
     public void MenuOff ()
     {
         Time.timeScale = m_TimeScaleRef;
-        AudioListener.volume = m_VolumeRef;
+        //AudioListener.volume = m_VolumeRef;
         m_Paused = false;
     }
 
