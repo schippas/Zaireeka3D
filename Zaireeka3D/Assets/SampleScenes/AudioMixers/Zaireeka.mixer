@@ -6,23 +6,23 @@ AudioMixerController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Car
+  m_Name: Zaireeka
   m_OutputGroup: {fileID: 0}
-  m_MasterGroup: {fileID: 24300001}
+  m_MasterGroup: {fileID: 24300002}
   m_Snapshots:
-  - {fileID: 24500003}
-  m_StartSnapshot: {fileID: 24500003}
+  - {fileID: 24500006}
+  m_StartSnapshot: {fileID: 24500006}
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters: []
   m_AudioMixerGroupViews:
   - guids:
-    - 41eddaaa6c4b148fc9928e9747297bdc
+    - 16ea0e18e72d5e04d80b9027740cc500
     name: View
   m_CurrentViewIndex: 0
-  m_TargetSnapshot: {fileID: 24500003}
---- !u!243 &24300001
+  m_TargetSnapshot: {fileID: 24500006}
+--- !u!243 &24300002
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -30,32 +30,32 @@ AudioMixerGroupController:
   m_PrefabAsset: {fileID: 0}
   m_Name: Master
   m_AudioMixer: {fileID: 24100000}
-  m_GroupID: 41eddaaa6c4b148fc9928e9747297bdc
+  m_GroupID: 16ea0e18e72d5e04d80b9027740cc500
   m_Children: []
-  m_Volume: dec4da9c76d9a40c399a3155d56ab20f
-  m_Pitch: 4261b6af864e145b9b60ea5532866d59
+  m_Volume: 38990025f7415a344a51bfbabc3c649b
+  m_Pitch: 88455ce109579e743b440eb41ff6b4c5
   m_Send: 00000000000000000000000000000000
   m_Effects:
-  - {fileID: 24400002}
+  - {fileID: 24400004}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
---- !u!244 &24400002
+--- !u!244 &24400004
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_EffectID: a5600257cf1f848af8399caa8ef7f7a2
+  m_EffectID: 75a46cc96af1a3f4da1bdcd367699c41
   m_EffectName: Attenuation
-  m_MixLevel: d1a9825501697457fb9f19c69c6c671a
+  m_MixLevel: bdea4f7ee6210e84eba30e576adaae79
   m_Parameters: []
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
---- !u!245 &24500003
+--- !u!245 &24500006
 AudioMixerSnapshotController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -63,6 +63,6 @@ AudioMixerSnapshotController:
   m_PrefabAsset: {fileID: 0}
   m_Name: Snapshot
   m_AudioMixer: {fileID: 24100000}
-  m_SnapshotID: 3e322503cf3b54a56a74638578af1c81
+  m_SnapshotID: 6e42780e359a5184aaadb931abfdfc71
   m_FloatValues: {}
   m_TransitionOverrides: {}
