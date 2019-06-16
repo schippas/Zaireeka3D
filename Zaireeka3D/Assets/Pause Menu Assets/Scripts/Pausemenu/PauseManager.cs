@@ -456,7 +456,7 @@ namespace GreatArcStudios
                 vidPanel.SetActive(false);
                 audioPanel.SetActive(false);
                 TitleTexts.SetActive(true);
-                mask.SetActive(true);
+                //mask.SetActive(true);
                 Time.timeScale = 0;
                 for (int i = 0; i < otherUIElements.Length; i++)
                 {
