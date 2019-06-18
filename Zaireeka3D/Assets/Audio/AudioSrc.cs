@@ -15,8 +15,18 @@ public class AudioSrc : MonoBehaviour
 
     void Start()
     {
+      //  var inputReader = new AudioFileReader("./Source 1/Audio Test");
+       // var mono = new StereoToMonoProvider16(inputReader);
+        //mono.LeftVolume = 0.0f; // discard the left channel
+        //mono.RightVolume = 1.0f; // keep the right channel
+
+        //WaveFileWriter.CreateWaveFile("./Source 1/Audio Test R.wav", mono);
+
         //Fetch the AudioSource from the GameObject
         m_MyAudioSource = GetComponent<AudioSource>();
+        m_MyAudioSource.panStereo = -1; 
+       // AudioClip music = (AudioClip)Resources.Load("./Source 1/Audio Test R");
+        //m_MyAudioSource.clip = music;
         //Ensure the toggle is set to true for the music to play at start-up
         m_Play = true;
     }
