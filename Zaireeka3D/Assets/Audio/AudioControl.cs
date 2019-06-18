@@ -19,6 +19,10 @@ public class AudioControl : MonoBehaviour
         {
             PauseAllAudio();
         }
+        if (Input.GetKeyDown("r"))
+        {
+            StopAllAudio();
+        }
     }
 
     //Pause all audio sources
@@ -41,6 +45,19 @@ public class AudioControl : MonoBehaviour
                 audio.Pause();
                 pauseAudio = 1;
             }
+        }
+    }
+
+    //Stop all audio sources.
+    void StopAllAudio()
+    {
+        allAudio = FindObjectsOfType(typeof(AudioSource))
+            as AudioSource[];
+
+        foreach (AudioSource audio in allAudio)
+        {
+                audio.Stop();
+                pauseAudio = 1;
         }
     }
 }
