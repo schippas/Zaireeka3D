@@ -19,12 +19,10 @@ public class AudioControl : MonoBehaviour
         if (Input.GetKeyDown("p"))
         {
             PauseAllAudio();
-        }
-        if (Input.GetKeyDown("r"))
+        } else if (Input.GetKeyDown("r"))
         {
             StopAllAudio();
-        }
-        if (Input.GetKeyDown("q"))
+        } else if (Input.GetKeyDown("q"))
         {
             syncAudio();
         }
@@ -62,6 +60,7 @@ public class AudioControl : MonoBehaviour
         foreach (AudioSource audio in allAudio)
         {
                 audio.Stop();
+                audio.time = 0; 
                 pauseAudio = 1;
         }
     }
