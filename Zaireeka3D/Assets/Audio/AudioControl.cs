@@ -6,6 +6,7 @@ public class AudioControl : MonoBehaviour
 {
     private AudioSource[] allAudio;
     private int pauseAudio = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,10 @@ public class AudioControl : MonoBehaviour
         if (Input.GetKeyDown("r"))
         {
             StopAllAudio();
+        }
+        if (Input.GetKeyDown("q"))
+        {
+            syncAudio();
         }
     }
 
@@ -58,6 +63,33 @@ public class AudioControl : MonoBehaviour
         {
                 audio.Stop();
                 pauseAudio = 1;
+        }
+    }
+
+    //Sync up audio tracks
+    void syncAudio()
+    {
+        allAudio = FindObjectsOfType(typeof(AudioSource))
+            as AudioSource[];
+
+        float sync = 0;
+
+        foreach (AudioSource audio in allAudio)
+        {
+            audio.Pause();
+            if(sync == 0)
+            {
+                sync = audio.time;
+            }
+            else
+            {
+                audio.time = sync;
+            }
+        }
+        foreach (AudioSource audio in allAudio)
+        {
+            audio.Play(0);
+            pauseAudio = 0;
         }
     }
 }
