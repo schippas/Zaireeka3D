@@ -12024,6 +12024,7 @@ MonoBehaviour:
   item: {fileID: 1104606352}
   player: {fileID: 883800625}
   view: {fileID: 1696989077}
+  cam: {fileID: 0}
 --- !u!1 &1129674458
 GameObject:
   m_ObjectHideFlags: 0
