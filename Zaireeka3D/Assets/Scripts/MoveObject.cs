@@ -7,7 +7,8 @@ public class MoveObject : MonoBehaviour
 
     Vector3 position;
     float distance;
-    float force = 100;
+    float maxDistance = 12;
+    float force = 5000;
         
     public bool hold = false;
     public GameObject item;
@@ -23,8 +24,22 @@ public class MoveObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(hold == true)
+        distance = Vector3.Distance(item.transform.position, player.transform.position);
+        if(distance > maxDistance)
         {
+            DropObject();
+        }
+
+
+
+        if (hold == true)
+        {
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                ThrowObject();
+            }
+
             item.GetComponent<Rigidbody>().velocity = Vector3.zero;
             item.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
             item.transform.SetParent(view.transform);
@@ -50,15 +65,11 @@ public class MoveObject : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if((Input.GetMouseButtonDown(0)) && (hold == false)){
+        if((Input.GetMouseButtonDown(0)) && (hold == false) && (distance <= maxDistance)){
             GrabObject();
         }else if((Input.GetMouseButtonDown(0)) && (hold == true))
         {
             DropObject();
-        }
-        if((Input.GetMouseButtonDown(1)) && (hold == true))
-        {
-            ThrowObject();
         }
     }
 
@@ -77,6 +88,7 @@ public class MoveObject : MonoBehaviour
 
     void ThrowObject()
     {
+        item.GetComponent<Rigidbody>().AddForce(view.transform.forward * force);
         hold = false;
         item.GetComponent<Rigidbody>().useGravity = true;
     }
