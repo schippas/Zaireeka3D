@@ -20,13 +20,14 @@ public class MoveObject : MonoBehaviour
         {
             item.GetComponent<Rigidbody>().velocity = Vector3.zero;
             item.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-            item.transform.SetParent(temp.transform);
+            //item.transform.SetParent(temp.transform);
+            item.GetComponent<Rigidbody>().velocity = temp.GetComponent<Rigidbody>().velocity;
+            item.GetComponent<Rigidbody>().angularVelocity = temp.GetComponent<Rigidbody>().angularVelocity;
         }
         else
         {
             position = item.transform.position;
             item.transform.SetParent(null);
-            item.GetComponent<Rigidbody>().useGravity = true;
             item.transform.position = position;
         }
     }
@@ -49,16 +50,18 @@ public class MoveObject : MonoBehaviour
     {
         hold = 1;
         item.GetComponent<Rigidbody>().detectCollisions = true;
-        item.GetComponent<Rigidbody>().useGravity = true;
+        item.GetComponent<Rigidbody>().useGravity = false;
     }
 
     void DropObject()
     {
         hold = 0;
+        item.GetComponent<Rigidbody>().useGravity = true;
     }
 
     void ThrowObject()
     {
         hold = 0;
+        item.GetComponent<Rigidbody>().useGravity = true;
     }
 }

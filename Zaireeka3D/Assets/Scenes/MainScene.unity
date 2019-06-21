@@ -12022,7 +12022,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hold: 0
   item: {fileID: 1104606352}
-  temp: {fileID: 1696989077}
+  temp: {fileID: 883800625}
 --- !u!1 &1129674458
 GameObject:
   m_ObjectHideFlags: 0
@@ -17371,7 +17371,7 @@ Camera:
   m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
+  m_FocalLength: 20.78461
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
