@@ -11,7 +11,8 @@ public class MoveObject : MonoBehaviour
         
     public int hold = 0;
     public GameObject item;
-    public GameObject temp;
+    public GameObject player;
+    public GameObject view;
 
     // Update is called once per frame
     void Update()
@@ -20,9 +21,9 @@ public class MoveObject : MonoBehaviour
         {
             item.GetComponent<Rigidbody>().velocity = Vector3.zero;
             item.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-            //item.transform.SetParent(temp.transform);
-            item.GetComponent<Rigidbody>().velocity = temp.GetComponent<Rigidbody>().velocity;
-            item.GetComponent<Rigidbody>().angularVelocity = temp.GetComponent<Rigidbody>().angularVelocity;
+            item.transform.SetParent(view.transform);
+            item.GetComponent<Rigidbody>().velocity = player.GetComponent<Rigidbody>().velocity;
+            item.GetComponent<Rigidbody>().angularVelocity = player.GetComponent<Rigidbody>().angularVelocity;
         }
         else
         {

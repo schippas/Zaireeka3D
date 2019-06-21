@@ -12022,7 +12022,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hold: 0
   item: {fileID: 1104606352}
-  temp: {fileID: 883800625}
+  player: {fileID: 883800625}
+  view: {fileID: 1696989077}
 --- !u!1 &1129674458
 GameObject:
   m_ObjectHideFlags: 0
