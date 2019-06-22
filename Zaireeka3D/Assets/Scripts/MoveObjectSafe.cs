@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveObject : MonoBehaviour
+//This Class is used for objecs, where the regular MoveObject
+//class does not work properly. I think I know why this works,
+//but I need to verify it. Workaround for now.
+//TODO: Find out why this actually works, and fix it.
+public class MoveObjectSafe : MonoBehaviour
 {
 
     Vector3 position;
@@ -44,12 +48,12 @@ public class MoveObject : MonoBehaviour
                 ThrowObject();
             }
 
-            item.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            item.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+            //item.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            //item.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
             item.transform.SetParent(view.transform);
-            item.GetComponent<Rigidbody>().velocity = player.GetComponent<Rigidbody>().velocity;
+            //item.GetComponent<Rigidbody>().velocity = player.GetComponent<Rigidbody>().velocity;
             //item.GetComponent<Rigidbody>().AddForce(view.transform.forward * force);
-            item.GetComponent<Rigidbody>().angularVelocity = player.GetComponent<Rigidbody>().angularVelocity;
+            //item.GetComponent<Rigidbody>().angularVelocity = player.GetComponent<Rigidbody>().angularVelocity;
 
             Vector2 viewPos = cam.WorldToViewportPoint(item.transform.position);
             if ((Vector2.Distance(viewPos, center) > 1) && (!(Physics.Raycast(ray, out hit))) || ((Physics.Raycast(ray, out hit)) && (hit.collider != item.GetComponent<Collider>())))
