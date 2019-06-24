@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,6 +8,8 @@ public class AudioMixer : MonoBehaviour
 {
     public GameObject source;
     public GameObject timeSlider;
+    public GameObject timeCount;
+    public Text timeSet;
 
     private void Start()
     {
@@ -22,6 +25,7 @@ public class AudioMixer : MonoBehaviour
         if (source.GetComponent<AudioSource>().clip)
         {
             timeSlider.GetComponent<Slider>().value = source.GetComponent<AudioSource>().time;
+            timeCount.GetComponent<Text>().text = source.GetComponent<AudioSource>().time.ToString();
         }
     }
 
@@ -44,6 +48,11 @@ public class AudioMixer : MonoBehaviour
         {
             timeSlider.GetComponent<Slider>().maxValue = source.GetComponent<AudioSource>().clip.length;
         }
+    }
+
+    public void setTime()
+    {
+        source.GetComponent<AudioSource>().time = (float)Convert.ToDouble(timeSet.text);
     }
 
 
