@@ -375,6 +375,7 @@ namespace GreatArcStudios
             audioPanel.SetActive(false);
             TitleTexts.SetActive(false);
             mask.SetActive(false);
+            //Cursor.visible = false;
             for (int i = 0; i < otherUIElements.Length; i++)
             {
                 otherUIElements[i].gameObject.SetActive(true);
@@ -445,7 +446,7 @@ namespace GreatArcStudios
             }
             else if (mainPanel.active == true)
             {
-                pauseMenu.text = "Pause Menu";
+                pauseMenu.text = "ZAIREEKA 3D";
             }
 
             if (Input.GetKeyDown(KeyCode.Escape) && mainPanel.active == false)
@@ -458,6 +459,8 @@ namespace GreatArcStudios
                 TitleTexts.SetActive(true);
                 //mask.SetActive(true);
                 Time.timeScale = 0;
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
                 for (int i = 0; i < otherUIElements.Length; i++)
                 {
                     otherUIElements[i].gameObject.SetActive(false);
@@ -474,6 +477,8 @@ namespace GreatArcStudios
                 audioPanel.SetActive(false);
                 TitleTexts.SetActive(false);
                 mask.SetActive(false);
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
                 for (int i = 0; i < otherUIElements.Length; i++)
                 {
                     otherUIElements[i].gameObject.SetActive(true);
