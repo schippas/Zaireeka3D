@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class OpenAudioMenu : MonoBehaviour
 {
 
     public GameObject modalPanel;
+    public GameObject player;
     //public GameObject source;
     bool active;
 
@@ -31,12 +33,13 @@ public class OpenAudioMenu : MonoBehaviour
                 active = false;
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
+                player.GetComponent<RigidbodyFirstPersonController>().pause();
 
             }
             else
             {
                 active = true;
-                //Time.timeScale = 0;
+                player.GetComponent<RigidbodyFirstPersonController>().pause();
             }
 
             modalPanel.SetActive(active);
@@ -49,6 +52,10 @@ public class OpenAudioMenu : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            if (active)
+            {
+                player.GetComponent<RigidbodyFirstPersonController>().pause();
+            }
             active = false;
             modalPanel.SetActive(active);
         }

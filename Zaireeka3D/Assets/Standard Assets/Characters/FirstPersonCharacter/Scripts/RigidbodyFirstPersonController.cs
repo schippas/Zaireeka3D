@@ -8,6 +8,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
     [RequireComponent(typeof (CapsuleCollider))]
     public class RigidbodyFirstPersonController : MonoBehaviour
     {
+        public bool openMenu;
         [Serializable]
         public class MovementSettings
         {
@@ -123,6 +124,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_RigidBody = GetComponent<Rigidbody>();
             m_Capsule = GetComponent<CapsuleCollider>();
             mouseLook.Init (transform, cam.transform);
+            openMenu = false;
         }
 
 
@@ -225,7 +227,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void RotateView()
         {
             //avoids the mouse looking if the game is effectively paused
-            if (Mathf.Abs(Time.timeScale) < float.Epsilon) return;
+            if ((Mathf.Abs(Time.timeScale) < float.Epsilon) || (openMenu)) return;
 
             // get the rotation before it's changed
             float oldYRotation = transform.eulerAngles.y;
@@ -260,6 +262,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 m_Jumping = false;
             }
+        }
+        public void pause()
+        {
+            openMenu = !openMenu;
         }
     }
 }
