@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,12 +11,19 @@ public class AudioMixer : MonoBehaviour
     public GameObject timeSlider;
     public GameObject timeCount;
     public Text timeSet;
+    public Dropdown files;
+    public String audioPath;
+
+    private string[] wavPaths;
+    private string[] mp3Paths;
+    private string[] oggPaths;
 
     private void Start()
     {
         if (timeSlider)
         {
             setLength();
+            setFiles();
         }
     }
 
@@ -55,5 +63,31 @@ public class AudioMixer : MonoBehaviour
         source.GetComponent<AudioSource>().time = (float)Convert.ToDouble(timeSet.text);
     }
 
+    public void setFiles()
+    {
+        getAudioFiles();
+        files.options.Clear();
+        foreach (string c in wavPaths)
+        {
+            files.options.Add(new Dropdown.OptionData() { text = System.IO.Path.GetFileName(c) });
+        }
+        foreach (string c in mp3Paths)
+        {
+            files.options.Add(new Dropdown.OptionData() { text = System.IO.Path.GetFileName(c) });
+        }
+        foreach (string c in oggPaths)
+        {
+            files.options.Add(new Dropdown.OptionData() { text = System.IO.Path.GetFileName(c) });
+        }
+    }
+
+    private void getAudioFiles()
+    {
+        string path = Application.dataPath + audioPath;
+        wavPaths = Directory.GetFiles(@path, "*.wav");
+        mp3Paths = Directory.GetFiles(@path, "*.mp3");
+        oggPaths = Directory.GetFiles(@path, "*.ogg");
+
+    }
 
 }
