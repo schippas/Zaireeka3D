@@ -14,6 +14,7 @@ public class AudioMixer : MonoBehaviour
     public Dropdown files;
     public String audioPath;
 
+    List<String> paths;
     private string[] wavPaths;
     private string[] mp3Paths;
     private string[] oggPaths;
@@ -23,6 +24,7 @@ public class AudioMixer : MonoBehaviour
         if (timeSlider)
         {
             setLength();
+            paths = new List<String>();
             setFiles();
         }
     }
@@ -67,15 +69,8 @@ public class AudioMixer : MonoBehaviour
     {
         getAudioFiles();
         files.options.Clear();
-        foreach (string c in wavPaths)
-        {
-            files.options.Add(new Dropdown.OptionData() { text = System.IO.Path.GetFileName(c) });
-        }
-        foreach (string c in mp3Paths)
-        {
-            files.options.Add(new Dropdown.OptionData() { text = System.IO.Path.GetFileName(c) });
-        }
-        foreach (string c in oggPaths)
+
+        foreach (string c in paths)
         {
             files.options.Add(new Dropdown.OptionData() { text = System.IO.Path.GetFileName(c) });
         }
@@ -88,6 +83,27 @@ public class AudioMixer : MonoBehaviour
         mp3Paths = Directory.GetFiles(@path, "*.mp3");
         oggPaths = Directory.GetFiles(@path, "*.ogg");
 
+        foreach (string c in wavPaths)
+        {
+            paths.Add(c);
+        }
+        foreach (string c in mp3Paths)
+        {
+            paths.Add(c);
+        }
+        foreach (string c in oggPaths)
+        {
+            paths.Add(c);
+        }
+
+    }
+
+    public void changeFile()
+    {
+        //WWW m_get = new WWW("file://" + paths[files.value]);
+        //source.GetComponent<AudioSource>().clip = m_get.audioClip;
+        source.GetComponent<AudioSource>().clip = Resources.Load<AudioClip>(System.IO.Path.GetFileName(paths[1]));//("Audio/Source 1/Audio Test");
+        source.GetComponent<AudioSource>().PlayOneShot(source.GetComponent<AudioSource>().clip);
     }
 
 }
