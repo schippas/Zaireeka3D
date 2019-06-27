@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.IO;
+using UnityEngine.SceneManagement;
 //using UnityStandardAssets.ImageEffects;
 /// <summary>
 ///  Copyright (c) 2016 Eric Zhu 
@@ -423,8 +424,9 @@ namespace GreatArcStudios
         /// </summary>
         public void returnToMenu()
         {
-            Application.LoadLevel(mainMenu);
-            uiEventSystem.SetSelectedGameObject(defualtSelectedMain);
+            SceneManager.LoadScene("TitleScreen", LoadSceneMode.Single);
+            //Application.LoadLevel(mainMenu);
+            // uiEventSystem.SetSelectedGameObject(defualtSelectedMain);
         }
 
         // Update is called once per frame

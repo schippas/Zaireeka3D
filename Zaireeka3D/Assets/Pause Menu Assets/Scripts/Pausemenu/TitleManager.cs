@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.IO;
+using UnityEngine.SceneManagement;
 //using UnityStandardAssets.ImageEffects;
 /// <summary>
 ///  Copyright (c) 2016 Eric Zhu 
@@ -368,13 +369,14 @@ namespace GreatArcStudios
         /// </summary>
         public void Resume()
         {
-            Time.timeScale = timeScale;
+            SceneManager.LoadScene("MainScene", LoadSceneMode.Single);
+            //Time.timeScale = timeScale;
 
-            mainPanel.SetActive(true);
-            vidPanel.SetActive(false);
-            audioPanel.SetActive(false);
-            TitleTexts.SetActive(false);
-            mask.SetActive(true);
+            //mainPanel.SetActive(true);
+            //vidPanel.SetActive(false);
+            //audioPanel.SetActive(false);
+            //TitleTexts.SetActive(false);
+            //mask.SetActive(true);
             //Cursor.visible = false;
             //for (int i = 0; i < otherUIElements.Length; i++)
             //{
