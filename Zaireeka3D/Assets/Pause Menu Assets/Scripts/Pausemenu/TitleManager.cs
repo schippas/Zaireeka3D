@@ -477,10 +477,10 @@ namespace GreatArcStudios
                 mainPanel.SetActive(true);
                 vidPanel.SetActive(false);
                 audioPanel.SetActive(false);
-                TitleTexts.SetActive(false);
+                TitleTexts.SetActive(true);
                 mask.SetActive(true);
                 Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.lockState = CursorLockMode.None;
                 //for (int i = 0; i < otherUIElements.Length; i++)
                 //{
                  //   otherUIElements[i].gameObject.SetActive(true);
