@@ -78,10 +78,12 @@ public class AudioMixer : MonoBehaviour
 
     private void getAudioFiles()
     {
-        string path = Application.dataPath + audioPath;
+        string path = Application.dataPath + "/Resources/" + audioPath;
         wavPaths = Directory.GetFiles(@path, "*.wav");
         mp3Paths = Directory.GetFiles(@path, "*.mp3");
         oggPaths = Directory.GetFiles(@path, "*.ogg");
+
+        paths.Add("");
 
         foreach (string c in wavPaths)
         {
@@ -100,10 +102,11 @@ public class AudioMixer : MonoBehaviour
 
     public void changeFile()
     {
-        //WWW m_get = new WWW("file://" + paths[files.value]);
-        //source.GetComponent<AudioSource>().clip = m_get.audioClip;
-        source.GetComponent<AudioSource>().clip = Resources.Load<AudioClip>(System.IO.Path.GetFileName(paths[1]));//("Audio/Source 1/Audio Test");
-        source.GetComponent<AudioSource>().PlayOneShot(source.GetComponent<AudioSource>().clip);
+        //note: doesn't work with file extension.
+        string selection = System.IO.Path.GetFileName(paths[files.value]);
+        selection = selection.Substring(0, selection.Length-4);
+        selection = audioPath + selection;
+        AudioClip temp = (AudioClip)Resources.Load(selection);
+        source.GetComponent<AudioSource>().clip = temp;
     }
-
 }
