@@ -13476,7 +13476,7 @@ Light:
   m_InnerSpotAngle: 93.63751
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -21345,10 +21345,10 @@ RectTransform:
   m_Father: {fileID: 1989814857}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 486.5, y: -319.49997}
-  m_SizeDelta: {x: 467.9, y: 291.6}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -6.4999695}
+  m_SizeDelta: {x: 467.90002, y: 291.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1257289227
 MonoBehaviour:
