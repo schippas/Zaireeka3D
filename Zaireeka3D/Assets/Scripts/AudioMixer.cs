@@ -10,6 +10,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 
 public class AudioMixer : MonoBehaviour
@@ -109,11 +110,20 @@ public class AudioMixer : MonoBehaviour
 
     public void changeFile()
     {
-        //note: doesn't work with file extension.
-        string selection = System.IO.Path.GetFileName(paths[files.value]);
-        selection = selection.Substring(0, selection.Length-4);
-        selection = audioPath + selection;
-        AudioClip temp = (AudioClip)Resources.Load(selection);
-        source.GetComponent<AudioSource>().clip = temp;
+
+        StartCoroutine(GetAudioClip());
+        IEnumerator GetAudioClip()
+        {
+            //note: doesn't work with file extension.
+            string selection = System.IO.Path.GetFileName(paths[files.value]);
+            selection = Application.dataPath + "/Resources/" + audioPath + selection;
+
+            UnityWebRequest web = UnityWebRequestMultimedia.GetAudioClip(selection, AudioType.UNKNOWN);
+            yield return web.SendWebRequest();
+            AudioClip temp = DownloadHandlerAudioClip.GetContent(web);
+
+            source.GetComponent<AudioSource>().clip = temp;
+            //source.GetComponent<AudioSource>().clip.LoadAudioData();
+        }
     }
 }
