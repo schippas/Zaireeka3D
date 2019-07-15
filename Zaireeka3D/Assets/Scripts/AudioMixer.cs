@@ -88,7 +88,7 @@ public class AudioMixer : MonoBehaviour
     {
         string path = Application.dataPath + "/Resources/" + audioPath;
         wavPaths = Directory.GetFiles(@path, "*.wav");
-        mp3Paths = Directory.GetFiles(@path, "*.mp3");
+        //mp3Paths = Directory.GetFiles(@path, "*.mp3");
         oggPaths = Directory.GetFiles(@path, "*.ogg");
 
         paths.Add("");
@@ -97,10 +97,10 @@ public class AudioMixer : MonoBehaviour
         {
             paths.Add(c);
         }
-        foreach (string c in mp3Paths)
-        {
-            paths.Add(c);
-        }
+        //foreach (string c in mp3Paths)
+       // {
+        //    paths.Add(c);
+        //}
         foreach (string c in oggPaths)
         {
             paths.Add(c);
