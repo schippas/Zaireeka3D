@@ -123,6 +123,7 @@ public class AudioMixer : MonoBehaviour
             AudioClip temp = DownloadHandlerAudioClip.GetContent(web);
 
             source.GetComponent<AudioSource>().clip = temp;
+            setLength();
             //source.GetComponent<AudioSource>().clip.LoadAudioData();
         }
     }
